@@ -6,6 +6,8 @@ const api = express();
 const port = 3000;
 const router = express.Router();
 
+const GaleriaRouter = require('./router/galeriaRouter');
+
 //Trata as requisições da API
 api.use(cors());
 
@@ -17,5 +19,6 @@ router.get("/",(req, resp) => resp.json({
 }));
 
 api.use("/", router);
+api.use("/galeria", GaleriaRouter);
 api.listen(port);
 console.log("Run API Express");
